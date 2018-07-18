@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "615765412488",
+    "firebase_url": "https://foodbook-afdfb.firebaseio.com",
+    "project_id": "foodbook-afdfb",
+    "storage_bucket": "foodbook-afdfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615765412488:android:a080057e740f30a2",
+        "android_client_info": {
+          "package_name": "falcon.assassin.ph.foodblog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615765412488-nq2v01hfp65g4pu60mauss6nnh8bi1h4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "falcon.assassin.ph.foodblog",
+            "certificate_hash": "5b88dfab787faddff45c561e7896d399cd7c2e4f"
+          }
+        },
+        {
+          "client_id": "615765412488-drmpasga8kaovmgdk0rjj400rdc9voad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXi7YzXSh0x8Rr-upS78QGVRWjgTqNbW0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615765412488-drmpasga8kaovmgdk0rjj400rdc9voad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
