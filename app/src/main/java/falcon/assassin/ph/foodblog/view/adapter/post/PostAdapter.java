@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -41,10 +42,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         String descData = posts.get(position).getDescription();
         String originalImage = posts.get(position).getOriginalImageUri();
-        Log.d("tag", descData);
+        //Log.d("tag", descData);
         holder.setDescText(descData);
         holder.setOriginalImage(originalImage);
-        Log.d("tag", originalImage);
+        //Log.d("tag", originalImage);
 
     }
 
@@ -79,6 +80,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
             Glide
                     .with(mView.getContext())
+                    .setDefaultRequestOptions(new RequestOptions().placeholder(R.mipmap.loadingtransparent).error(R.mipmap.loadingtransparent))
                     .load(image)
                     .into(postImageView);
         }
