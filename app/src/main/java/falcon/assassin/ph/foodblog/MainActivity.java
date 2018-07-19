@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
+        replaceFragment(homeFragment);
+
         // Set navigation onclick
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

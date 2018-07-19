@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -96,7 +97,7 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        mToolBar = findViewById(R.id.mainActionBar);
+        mToolBar = findViewById(R.id.layoutActionBar);
         setSupportActionBar(mToolBar);
 
         postDescField = findViewById(R.id.postDescField);
@@ -105,12 +106,10 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
         postImageView.setOnClickListener(this);
 
         getSupportActionBar().setTitle("");
-        mTitleActionBar = mToolBar.findViewById(R.id.actionCustomTitle);
+        mTitleActionBar = mToolBar.findViewById(R.id.actionCustomTitlePost);
         mTitleActionBar.setText("Create Food");
-        mTitleActionBarLeft = mToolBar.findViewById(R.id.actionCustomTitleLeft);
-        mTitleActionBarLeft.setText("Cancel");
-        mTitleActionBarRight = mToolBar.findViewById(R.id.actionCustomTitleRight);
-        mTitleActionBarRight.setText("Post");
+        mTitleActionBarLeft = mToolBar.findViewById(R.id.actionCustomTitleLeftPost);
+        mTitleActionBarRight = mToolBar.findViewById(R.id.actionCustomTitleRightPost);
 
         mTitleActionBarLeft.setOnClickListener(this);
         mTitleActionBarRight.setOnClickListener(this);
@@ -159,9 +158,11 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.actionCustomTitleLeft:
+            case R.id.actionCustomTitleLeftPost:
 
                 // Cancel
+
+                mTitleActionBarLeft.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                 Intent cancelIntent = new Intent(PostActivity.this, MainActivity.class);
                 startActivity(cancelIntent);
@@ -169,10 +170,12 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.actionCustomTitleRight:
+            case R.id.actionCustomTitleRightPost:
 
                 postDesc = postDescField.getText().toString();
                 String randomId = UUID.randomUUID().toString();
+
+                mTitleActionBarRight.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                 StorageReference image_post = mStorageRef.child("post_file").child(currentUser).child(randomId + ".jpg");
                 StorageReference thumbnailPost = mStorageRef.child("post_file/thumbnails").child(currentUser).child(randomId + ".jpg");
@@ -313,6 +316,7 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
                         Glide
                                 .with(getApplicationContext())
+                                .setDefaultRequestOptions(new RequestOptions().placeholder(R.mipmap.personcircle).error(R.mipmap.personcircle))
                                 .load(value.imageUri)
                                 .into(profileImage);
 

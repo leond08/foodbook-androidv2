@@ -15,6 +15,7 @@ public class Post {
     public String description;
     public Long timeStamp;
 
+
     public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
@@ -66,6 +67,7 @@ public class Post {
     public void setTimeStamp(Long timeStamp) {
         this.timeStamp = this.timeStamp;
     }
+
 
     @Exclude
     public Map<String, Object> toMap() {
